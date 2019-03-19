@@ -20,6 +20,7 @@
 
 
 <script>
+import moment from 'moment'
 import { forEach } from 'rambda'
 import db from '@/firebase/init'
 import NewMessage from '@/components/NewMessage'
@@ -45,7 +46,7 @@ export default {
             id: doc.id,
             name: doc.data().name,
             content: doc.data().content,
-            timestamp: doc.data().timestamp,
+            timestamp: moment(doc.data().timestamp).format('lll'),
           })
         }
       })(changes)
@@ -66,7 +67,7 @@ export default {
   }
   .time {
     display: block;
-    font-size: 1.2em;
+    font-size: 0.82em;
   }
 }
 </style>
