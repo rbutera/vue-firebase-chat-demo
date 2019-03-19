@@ -8,16 +8,23 @@
 <script>
 export default {
   name: 'App',
-};
+}
 </script>
 
 <style>
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'),
+    local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI Light'),
+    local('Roboto-Light'), local('DroidSans'), local('Tahoma');
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'system';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
