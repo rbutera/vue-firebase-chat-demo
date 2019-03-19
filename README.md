@@ -2,9 +2,11 @@
 
 > Realtime Chat app built using Vue.js + Firestore
 
+[LIVE DEMO](https://vue-firebase-chat-demo.firebaseapp.com)
+
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
