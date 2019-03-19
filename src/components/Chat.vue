@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <input type="text" name="write-message">
+        <NewMessage :username="name"/>
       </div>
     </div>
   </div>
@@ -20,9 +20,11 @@
 
 
 <script>
+import NewMessage from '@/components/NewMessage'
 export default {
   name: 'Chat',
   props: ['name'],
+  components: { NewMessage },
   data() {
     return {}
   },
@@ -35,6 +37,13 @@ export default {
   h2 {
     font-size: 2.6em;
     margin-bottom: 40px;
+  }
+  span {
+    font-size: 1.4em;
+  }
+  .time {
+    display: block;
+    font-size: 1.2em;
   }
 }
 </style>
