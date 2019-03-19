@@ -1,6 +1,6 @@
 <template>
   <div class="new-message">
-    <form autocomplete="off" @submit.prevent="postMessage" @keyup="validateMessage">
+    <form autocomplete="off" @submit.prevent="postMessage" @keydown="validateMessage">
       <p v-if="feedback" class="red-text">{{feedback}}</p>
       <input type="text" name="write-message" v-model="message">
       <span v-if="message" class="chars-left grey-text">{{message.length}}/140</span>
@@ -22,8 +22,11 @@ export default {
   },
   methods: {
     postMessage() {
-      const valid = this.validateMessage()
-      if (valid) {
+      this.valid = this.validateMessage()
+      if (!this.message) {
+        this.feedback = 'Please enter your message.'
+      }
+      if (this.valid) {
         console.log(
           `would post message:\nusername:\t'${this.username}'\nbody:\n\t${
             this.message
@@ -35,8 +38,8 @@ export default {
         console.log(`not posting message`)
       }
     },
-    validateMessage() {
-      if (!this.message) {
+    validateMessage(event) {
+      if (!this.message && event && event.key !== 'Enter') {
         this.feedback = null
         return false
       }
