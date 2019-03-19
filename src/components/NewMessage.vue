@@ -10,6 +10,7 @@
 
 
 <script>
+import db from '@/firebase/init'
 export default {
   name: 'NewMessage',
   props: ['username'],
@@ -32,6 +33,14 @@ export default {
             this.message
           }`,
         )
+
+        db.collection('messages')
+          .add({
+            name: this.username,
+            content: this.message,
+            timestamp: Date.now(),
+          })
+          .catch(err => console.error(err))
 
         this.message = null
       } else {
